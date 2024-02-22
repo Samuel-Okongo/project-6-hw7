@@ -1,6 +1,6 @@
 """
-This module contains tests for basic arithmetic operations implemented in the Calculator class.
-It includes tests for addition, subtraction, multiplication, and division, including division by zero.
+This module contains tests for arithmetic operations implemented in the Calculator class.
+Tests cover addition, subtraction, multiplication, division, and division by zero.
 """
 
 import pytest
@@ -42,3 +42,4 @@ def test_divide_by_zero():
     """Test division by zero raises a ValueError."""
     with pytest.raises(ValueError):
         Calculator.divide(1, 0)
+        
