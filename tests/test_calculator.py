@@ -1,35 +1,44 @@
+"""
+This module contains tests for basic arithmetic operations implemented in the Calculator class.
+It includes tests for addition, subtraction, multiplication, and division, including division by zero.
+"""
+
 import pytest
 from calculator.calculator import Calculator
 
-@pytest.mark.parametrize("a, b, expected", [
+@pytest.mark.parametrize("num1, num2, expected", [
     (1, 2, 3),
     (4, 5, 9),
 ])
-def test_add(a, b, expected):
-    assert Calculator.add(a, b) == expected
+def test_add(num1, num2, expected):
+    """Test addition functionality."""
+    assert Calculator.add(num1, num2) == expected
 
-@pytest.mark.parametrize("a, b, expected", [
+@pytest.mark.parametrize("num1, num2, expected", [
     (5, 3, 2),
     (10, 4, 6),
 ])
-def test_subtract(a, b, expected):
-    assert Calculator.subtract(a, b) == expected
+def test_subtract(num1, num2, expected):
+    """Test subtraction functionality."""
+    assert Calculator.subtract(num1, num2) == expected
 
-@pytest.mark.parametrize("a, b, expected", [
+@pytest.mark.parametrize("num1, num2, expected", [
     (2, 3, 6),
     (7, 8, 56),
 ])
-def test_multiply(a, b, expected):
-    assert Calculator.multiply(a, b) == expected
+def test_multiply(num1, num2, expected):
+    """Test multiplication functionality."""
+    assert Calculator.multiply(num1, num2) == expected
 
-@pytest.mark.parametrize("a, b, expected", [
+@pytest.mark.parametrize("num1, num2, expected", [
     (6, 2, 3),
     (9, 3, 3),
-    
 ])
-def test_divide(a, b, expected):
-    assert Calculator.divide(a, b) == expected
+def test_divide(num1, num2, expected):
+    """Test division functionality."""
+    assert Calculator.divide(num1, num2) == expected
 
 def test_divide_by_zero():
+    """Test division by zero raises a ValueError."""
     with pytest.raises(ValueError):
         Calculator.divide(1, 0)
