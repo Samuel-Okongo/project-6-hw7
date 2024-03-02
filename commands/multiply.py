@@ -1,0 +1,6 @@
+class MultiplyCommand:
+    def execute(self, *args):
+        result = 1
+        for number in args:
+            result *= number
+        return result
