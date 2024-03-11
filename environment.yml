@@ -1,0 +1,8 @@
+name: myenv
+channels:
+  - defaults
+dependencies:
+  - numpy
+  - pandas
+  - scipy
+  - pytest
