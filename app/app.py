@@ -5,7 +5,11 @@ to basic mathematical operations such as addition, subtraction,
 multiplication, and division. Users interact with the calculator by
 entering commands and arguments through the command line."""
 
+from commands.add import AddCommand
 from commands.command_handler import CommandHandler
+from commands.divide import DivideCommand
+from commands.multiply import MultiplyCommand
+from commands.subtract import SubtractCommand
 
 class App:
     """
@@ -20,10 +24,10 @@ class App:
         self.command_handler = CommandHandler()
         # Ensure these command strings are properly handled elsewhere,
         # or consider directly passing instantiated objects or functions.
-        self.command_handler.register_command("add", "AddCommand()")
-        self.command_handler.register_command("subtract", "SubtractCommand()")
-        self.command_handler.register_command("multiply", "MultiplyCommand()")
-        self.command_handler.register_command("divide", "DivideCommand()")
+        self.command_handler.register_command("add", AddCommand())
+        self.command_handler.register_command("subtract", SubtractCommand())
+        self.command_handler.register_command("multiply", MultiplyCommand())
+        self.command_handler.register_command("divide", DivideCommand())
     def start(self):
         """
         Starts the application loop which prompts the user for commands
