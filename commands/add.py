@@ -19,4 +19,4 @@ class AddCommand:
             The sum of all provided arguments as a float or integer. If no arguments
             are provided, returns 0.
         """
-        return sum(args)
+        return sum(args) 
