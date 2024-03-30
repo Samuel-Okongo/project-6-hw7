@@ -1,3 +1,9 @@
+"""
+This module contains the App class which demonstrates a simple command handling mechanism for
+a calculator, with history tracking and logging. Uses logging for most user interactions
+and error handling.
+"""
+
 import logging
 import pandas as pd
 from commands.add import AddCommand
@@ -25,24 +31,18 @@ logger.addHandler(file_handler)
 
 class App:
     """
-    App class demonstrating a simple command handling mechanism for
-    a calculator, with history tracking and logging. Uses logging for
-    most user interactions and error handling.
+    App class for a calculator, with command handling, history tracking, and logging.
     """
     def __init__(self):
         """
-        Initializes the App with a command handler, registers the
-        mathematical operations as commands, and initializes history tracking.
+        Initializes the App with a command handler and history tracking.
         """
         self.command_handler = CommandHandler()
-
-        # Initialize or load history from 'history.csv'
         try:
             self.history = pd.read_csv('history.csv')
         except FileNotFoundError:
             self.history = pd.DataFrame(columns=['Command', 'Arguments', 'Result'])
-        
-        # Register commands
+
         self.register_command("add", AddCommand())
         self.register_command("subtract", SubtractCommand())
         self.register_command("multiply", MultiplyCommand())
@@ -50,52 +50,54 @@ class App:
 
     def register_command(self, name, command):
         """
-        Registers a command and logs the registration.
+        Registers a command with the command handler.
         """
+        logger.info("Registered command: %s", name)
         self.command_handler.register_command(name, command)
-        logger.info(f"Registered command: {name}")
 
     def start(self):
         """
-        Starts the application loop, handling commands and logging outputs.
+        Starts the calculator application, accepting user input.
         """
-        logger.info("Calculator started. Type 'exit' to exit. Type 'history' to view command history.")
+        logger.info("Calculator started.'exit' to exit.'history' to view command history.")
         while True:
             command_input = input(">>> ").strip().lower().split()
             if not command_input:
                 continue
-            
+
             command_name = command_input[0]
             if command_name == "exit":
                 logger.info("Exiting the calculator...")
                 break
-            elif command_name == "history":
+            if command_name == "history":
                 self.print_history()
                 continue
-            
+
             try:
                 args = list(map(float, command_input[1:]))
                 result = self.command_handler.execute_command(command_name, *args)
                 self.add_to_history(command_name, args, result)
-                logger.info(f"Result: {result}")
+                logger.info("Result: %s", result)
             except ValueError as e:
-                logger.error(f"Error executing command '{command_name}' with args {args}: {e}")
-    
+                logger.error("Error with '%s' args %s: %s", command_name, args, e)
+
     def add_to_history(self, command_name, args, result):
         """
-        Adds a command execution to the history and saves it to CSV.
+        Adds a completed command's details to the history.
         """
-        new_entry = pd.DataFrame([[command_name, args, result]], columns=['Command', 'Arguments', 'Result'])
+        new_entry = pd.DataFrame([[command_name, args, result]],
+                                 columns=['Command', 'Arguments', 'Result'])
         self.history = pd.concat([self.history, new_entry], ignore_index=True)
         self.history.to_csv('history.csv', index=False)
-    
+
     def print_history(self):
         """
-        Logs the history of commands executed.
+        Prints the history of executed commands.
         """
         if self.history.empty:
             logger.info("No history available.")
             return
 
         for index, row in self.history.iterrows():
-            logger.info(f"{index + 1}: {row['Command']} {row['Arguments']} = {row['Result']}")
+            logger.info("%d: %s %s = %s", index + 1, row['Command'],
+                        row['Arguments'], row['Result'])
