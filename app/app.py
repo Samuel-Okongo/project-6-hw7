@@ -1,11 +1,12 @@
 import logging
+import pandas as pd
 from commands.add import AddCommand
 from commands.command_handler import CommandHandler
 from commands.divide import DivideCommand
 from commands.multiply import MultiplyCommand
 from commands.subtract import SubtractCommand
 
-# Create a custom logger
+# Configure logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)  # Set the log level
 
@@ -34,21 +35,26 @@ class App:
         mathematical operations as commands, and initializes history tracking.
         """
         self.command_handler = CommandHandler()
-        self.history = []
+
+        # Initialize or load history from 'history.csv'
+        try:
+            self.history = pd.read_csv('history.csv')
+        except FileNotFoundError:
+            self.history = pd.DataFrame(columns=['Command', 'Arguments', 'Result'])
         
         # Register commands
         self.register_command("add", AddCommand())
         self.register_command("subtract", SubtractCommand())
         self.register_command("multiply", MultiplyCommand())
         self.register_command("divide", DivideCommand())
-    
+
     def register_command(self, name, command):
         """
         Registers a command and logs the registration.
         """
         self.command_handler.register_command(name, command)
         logger.info(f"Registered command: {name}")
-    
+
     def start(self):
         """
         Starts the application loop, handling commands and logging outputs.
@@ -70,18 +76,26 @@ class App:
             try:
                 args = list(map(float, command_input[1:]))
                 result = self.command_handler.execute_command(command_name, *args)
-                self.history.append((command_name, args, result))
+                self.add_to_history(command_name, args, result)
                 logger.info(f"Result: {result}")
             except ValueError as e:
                 logger.error(f"Error executing command '{command_name}' with args {args}: {e}")
+    
+    def add_to_history(self, command_name, args, result):
+        """
+        Adds a command execution to the history and saves it to CSV.
+        """
+        new_entry = pd.DataFrame([[command_name, args, result]], columns=['Command', 'Arguments', 'Result'])
+        self.history = pd.concat([self.history, new_entry], ignore_index=True)
+        self.history.to_csv('history.csv', index=False)
     
     def print_history(self):
         """
         Logs the history of commands executed.
         """
-        if not self.history:
+        if self.history.empty:
             logger.info("No history available.")
             return
-        
-        for i, (command, args, result) in enumerate(self.history, start=1):
-            logger.info(f"{i}: {command} {args} = {result}")
+
+        for index, row in self.history.iterrows():
+            logger.info(f"{index + 1}: {row['Command']} {row['Arguments']} = {row['Result']}")

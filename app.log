@@ -6,3 +6,12 @@
 2024-03-30 02:35:38,469 - INFO - No history available.
 2024-03-30 02:35:49,139 - INFO - Result: 44.0
 2024-03-30 02:36:05,723 - INFO - Exiting the calculator...
+2024-03-30 02:53:27,805 - INFO - Registered command: add
+2024-03-30 02:53:27,805 - INFO - Registered command: subtract
+2024-03-30 02:53:27,805 - INFO - Registered command: multiply
+2024-03-30 02:53:27,805 - INFO - Registered command: divide
+2024-03-30 02:53:27,805 - INFO - Calculator started. Type 'exit' to exit. Type 'history' to view command history.
+2024-03-30 02:53:35,599 - INFO - Result: 44.0
+2024-03-30 02:54:05,004 - INFO - Result: 44.0
+2024-03-30 02:54:10,460 - INFO - Result: 46.0
+2024-03-30 02:54:20,319 - INFO - Exiting the calculator...
