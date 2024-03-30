@@ -72,6 +72,9 @@ class App:
         
         for i, (command, args, result) in enumerate(self.history, start=1):
             logger.info(f"{i}: {command} {args} = {result}")
-
-# Remember to instantiate your App class and call the start method in your main module or entry script.
-
+        
+        def load_data_from_csv(self, file_path):
+         with open(file_path, mode='r') as file:
+            csv_reader = csv.reader(file)
+            data = [row for row in csv_reader]
+         return data
