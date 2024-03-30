@@ -5,9 +5,22 @@ from commands.divide import DivideCommand
 from commands.multiply import MultiplyCommand
 from commands.subtract import SubtractCommand
 
-# Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# Create a custom logger
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)  # Set the log level
+
+# Create handlers for both the terminal and the file output
+stream_handler = logging.StreamHandler()  # Terminal output
+file_handler = logging.FileHandler('app.log', mode='a')  # Append mode
+
+# Create a formatter and add it to the handlers
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+stream_handler.setFormatter(formatter)
+file_handler.setFormatter(formatter)
+
+# Add handlers to the logger
+logger.addHandler(stream_handler)
+logger.addHandler(file_handler)
 
 class App:
     """
@@ -72,6 +85,3 @@ class App:
         
         for i, (command, args, result) in enumerate(self.history, start=1):
             logger.info(f"{i}: {command} {args} = {result}")
-
-# Remember to instantiate your App class and call the start method in your main module or entry script.
-
