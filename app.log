@@ -15,3 +15,26 @@
 2024-03-30 02:54:05,004 - INFO - Result: 44.0
 2024-03-30 02:54:10,460 - INFO - Result: 46.0
 2024-03-30 02:54:20,319 - INFO - Exiting the calculator...
+2024-03-30 02:58:31,973 - INFO - Registered command: add
+2024-03-30 02:58:31,973 - INFO - Registered command: subtract
+2024-03-30 02:58:31,973 - INFO - Registered command: multiply
+2024-03-30 02:58:31,973 - INFO - Registered command: divide
+2024-03-30 02:58:31,973 - INFO - Calculator started. Type 'exit' to exit. Type 'history' to view command history.
+2024-03-30 02:58:38,348 - INFO - Result: 0.0
+2024-03-30 02:58:50,312 - INFO - Result: 44.0
+2024-03-30 02:59:16,463 - INFO - Exiting the calculator...
+2024-03-30 03:05:58,523 - INFO - Registered command: add
+2024-03-30 03:05:58,523 - INFO - Registered command: subtract
+2024-03-30 03:05:58,523 - INFO - Registered command: multiply
+2024-03-30 03:05:58,523 - INFO - Registered command: divide
+2024-03-30 03:05:58,523 - INFO - Calculator started. Type 'exit' to exit. Type 'history' to view command history.
+2024-03-30 03:06:01,990 - INFO - Result: 44.0
+2024-03-30 03:06:20,019 - INFO - Result: 266600.0
+2024-03-30 03:07:14,516 - INFO - Exiting the calculator...
+2024-03-30 03:07:45,972 - INFO - Registered command: add
+2024-03-30 03:07:45,973 - INFO - Registered command: subtract
+2024-03-30 03:07:45,973 - INFO - Registered command: multiply
+2024-03-30 03:07:45,973 - INFO - Registered command: divide
+2024-03-30 03:07:45,973 - INFO - Calculator started. Type 'exit' to exit. Type 'history' to view command history.
+2024-03-30 03:07:50,675 - INFO - Result: 44.0
+2024-03-30 03:10:36,526 - INFO - Exiting the calculator...
