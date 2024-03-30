@@ -1,0 +1,35 @@
+2024-03-29 19:50:33,143 - INFO - Registered command: add
+2024-03-29 19:50:33,143 - INFO - Registered command: subtract
+2024-03-29 19:50:33,143 - INFO - Registered command: multiply
+2024-03-29 19:50:33,143 - INFO - Registered command: divide
+2024-03-29 19:50:33,143 - INFO - Calculator started. Type 'exit' to exit.
+2024-03-29 19:52:40,947 - INFO - Result: 44.0
+2024-03-29 19:52:44,665 - INFO - Exiting the calculator...
+2024-03-29 19:52:47,721 - INFO - Registered command: add
+2024-03-29 19:52:47,721 - INFO - Registered command: subtract
+2024-03-29 19:52:47,721 - INFO - Registered command: multiply
+2024-03-29 19:52:47,721 - INFO - Registered command: divide
+2024-03-29 19:52:47,721 - INFO - Calculator started. Type 'exit' to exit.
+2024-03-29 19:53:13,614 - INFO - Exiting the calculator...
+2024-03-29 19:57:09,039 - INFO - Registered command: add
+2024-03-29 19:57:09,039 - INFO - Registered command: subtract
+2024-03-29 19:57:09,039 - INFO - Registered command: multiply
+2024-03-29 19:57:09,039 - INFO - Registered command: divide
+2024-03-29 19:57:09,039 - INFO - Calculator started. Type 'exit' to exit. Type 'history' to view command history.
+2024-03-29 19:57:36,773 - INFO - Exiting the calculator...
+2024-03-29 20:05:26,824 - INFO - Registered command: add
+2024-03-29 20:05:26,825 - INFO - Registered command: subtract
+2024-03-29 20:05:26,825 - INFO - Registered command: multiply
+2024-03-29 20:05:26,825 - INFO - Registered command: divide
+2024-03-29 20:05:26,825 - INFO - Calculator started. Type 'exit' to exit.
+2024-03-29 20:05:30,587 - INFO - Result: 44.0
+2024-03-29 20:05:50,091 - INFO - Result: 0.0
+2024-03-29 20:10:08,870 - INFO - Exiting the calculator...
+2024-03-29 20:10:14,660 - INFO - Registered command: add
+2024-03-29 20:10:14,660 - INFO - Registered command: subtract
+2024-03-29 20:10:14,660 - INFO - Registered command: multiply
+2024-03-29 20:10:14,660 - INFO - Registered command: divide
+2024-03-29 20:10:14,660 - INFO - Calculator started. Type 'exit' to exit. Type 'history' to view command history.
+2024-03-29 20:10:31,681 - INFO - Result: -33.0
+2024-03-29 20:10:44,060 - INFO - Result: 44.0
+2024-03-29 20:12:55,376 - INFO - Exiting the calculator...
